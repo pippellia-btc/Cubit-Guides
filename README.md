@@ -25,7 +25,7 @@ _Extra: From the BIOS you can configure the speed of the fan (if it's PWM compat
 ----
 
 <details>
-    <summary> <h2> Cubit RAID </h2> </summary>
+    <summary> <h2> Cubit with RAID; Recommended </h2> </summary>
 
 ## Step 2. Installing Ubuntu Server
 
@@ -66,7 +66,7 @@ _Note: The next time you reboot, your Ubuntu password will be the same as the pa
 
 
 <details>
-    <summary> <h2>Cubit single disk</h2></summary>
+    <summary> <h2>Cubit with single disk</h2></summary>
 
 ## Step 2. Installing Ubuntu Server
 
