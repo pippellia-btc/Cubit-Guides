@@ -68,7 +68,7 @@ If it shows `active` everything should work. If you now run `lsblk` you should s
 1.  Wait up to 10 min
 2.  On any device that's connected to the home network, type Cubit's `ip_address` in a browser and start using Citadel!
 
-_Note: The next time you reboot, your Ubuntu password will be the same as the password you entered on Citadel_
+_Note: After one reboot, your Ubuntu password will be the same as the password you entered on Citadel_
 
 </details>
 
@@ -112,6 +112,6 @@ If it shows `active` everything should work.
 1.  Wait up to 10 min
 2.  On any device that's connected to the home network, type Cubit's `ip_address` in a browser and start using Citadel!
 
-_Note: The next time you reboot, your Ubuntu password will be the same as the password you entered on Citadel_
+_Note: After one reboot, your Ubuntu password will be the same as the password you entered on Citadel_
 
 </details>
