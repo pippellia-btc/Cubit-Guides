@@ -10,12 +10,13 @@ This guide will cover **how to install Citadel** on two Cubit configurations:
 ## Step 0. Prerequisites
 
 In order to use Cubit, you need **SSH installed** on your primary machine, being it a desktop or laptop. Linux and MacOS have it pre-installed; if you use Windows you will have to install it.
-Here is a tutorial (Windows): https://youtu.be/g2I6en4Mdjo?feature=shared
+
+_Here is a tutorial (Windows):_ https://youtu.be/g2I6en4Mdjo?feature=shared
 
 ## Step 1. Preliminaries
 
 1.  Download `ubuntu server 22.04 LTS` from the official website here: https://ubuntu.com/download/server
-2.  Flash it on your USB drive, using an App like **Balena Etcher**: https://etcher.balena.io/
+2.  Flash it on your USB drive, using an App like Balena Etcher: https://etcher.balena.io/
 3.  Safely remove the USB drive, plug it into Cubit, and power-on
 4.  Repetetly press the `Del` key to enter the BIOS
 5.  Use the arrow keys to go to the `Boot` tab and make sure the USB is the first option (highest priority)
@@ -29,9 +30,12 @@ _Extra: From the BIOS you can configure the speed of the fan (if it's PWM compat
 
 ## Step 2. Installing Ubuntu Server
 
-1. Go through with the **installation wizard**. Select the default choice in all steps except those indicated below.
-2. When you arrive at the storage configuration, select `Custom Storage`  and copy the following configuration you see in the image
+1. Go through with the **installation wizard**. Select the default choice in all steps except those indicated below
+2. When you arrive at the storage configuration, select `Custom Storage` and copy the following configuration you see in the image
+(the NVMe is the boot drive, mounted at `/` ; The two SATA drives are neither formatted nor mounted)
+
 ![image](https://github.com/pippellia-btc/Cubit-Guides/assets/108896743/0e73deef-5af8-452d-9b99-9e68499cb40f)
+
 3. Install OpenSSH
 
 
@@ -40,10 +44,13 @@ _Extra: From the BIOS you can configure the speed of the fan (if it's PWM compat
 1. After the installation, power up your Cubit and plug in the **ethernet cable**
 2. Get the `ip_address` of your Cubit, using an App like Angry IP Scanner: https://angryip.org/
 3. Open the **terminal** (or prompt in Windows), and SSH into your Cubit with the command `ssh [username]@ip_address`, using the `username` and `password` you specified during the installation
+
 ![image](https://github.com/pippellia-btc/Cubit-Guides/assets/108896743/5bc8fea7-b6e0-4d00-a91c-1a50b6208d51)
 
 
 ## Step 4. Installing Citadel
+Copy the following commands in the terminal of your Cubit
+
 1. Configure the RAID: `sudo mdadm --create --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sda /dev/sdb`
 2. Install Docker: `curl -fsSL https://get.docker.com | sh`
 3. Install Citadel dependencies: `sudo apt -y install fswatch jq rsync curl python3-requests python3-yaml git`
@@ -54,6 +61,7 @@ _Extra: From the BIOS you can configure the speed of the fan (if it's PWM compat
 8. Wait 5 min, then **SSH** again into Cubit
 9. Test if the storage configuration works with `sudo systemctl status citadel-external-storage`
 If it shows `active` everything should work. If you now run `lsblk` you should see something like this
+
 ![image](https://github.com/pippellia-btc/Cubit-Guides/assets/108896743/7e752172-f5de-4ee8-b8fb-4a44fca3fb13)
 
 ## Step 5. Start using Citadel
@@ -72,7 +80,10 @@ _Note: The next time you reboot, your Ubuntu password will be the same as the pa
 
 1. Go through with the **installation wizard**. Select the default choice in all steps except those indicated below.
 2. When you arrive at the storage configuration, select `Custom Storage`  and copy the following configuration you see in the image
+(the NVMe is the boot drive, mounted at `/`)
+
 ![3%](https://github.com/pippellia-btc/Cubit-Guides/assets/108896743/8dfa906b-924d-4cd5-852e-4aa134f99b16)
+
 3. Install OpenSSH
 
 
@@ -81,10 +92,13 @@ _Note: The next time you reboot, your Ubuntu password will be the same as the pa
 1. After the installation, power up your Cubit and plug in the **ethernet cable**
 2. Get the `ip_address` of your Cubit, using an App like Angry IP Scanner: https://angryip.org/
 3. Open the **terminal** (or prompt in Windows), and SSH into your Cubit with the command `ssh [username]@ip_address`, using the `username` and `password` you specified during the installation
+
 ![image](https://github.com/pippellia-btc/Cubit-Guides/assets/108896743/5bc8fea7-b6e0-4d00-a91c-1a50b6208d51)
 
 
 ## Step 4. Installing Citadel
+Copy the following commands in the terminal of your Cubit
+
 1. Install Docker: `curl -fsSL https://get.docker.com | sh`
 2. Install Citadel dependencies: `sudo apt -y install fswatch jq rsync curl python3-requests python3-yaml git`
 3. Download Citadel: `git clone https://gitlab.com/nirvati/citadel/lts/core.git ~/citadel`
