@@ -1,5 +1,5 @@
-# Cubit-Guides
-The one-stop guide to getting Citadel up and running on your own Cubit
+# Cubit-Guides & print files
+The one-stop guide to getting Citadel up and running on your own Cubit. If you want to print your own case you can find the files in the `print_files` directory.
 
 ----
 
